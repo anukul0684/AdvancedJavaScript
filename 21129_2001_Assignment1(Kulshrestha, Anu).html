@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>lightSlider Carousel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <!-- Applied for responsive design by Anu Kulshrestha   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+
+    ///////////////////////////////////////////////////////////////////////
+    //                                                                   //
+    //                  Program Name: Web Development                    //
+    //                                                                   //
+    //                   Course Name: Advanced JavaScript                //
+    //                         Batch: WDD7 - Jan 2020                    //
+    //                    Instructor: Brent Scott                        //
+    //               Assignment No. : 1                                  // 
+    //                                                                   //
+    //                  Submitted by: Anu Kulshrestha                    //
+    //                                                                   //
+    ///////////////////////////////////////////////////////////////////////
+
+    -->
+    <link rel="stylesheet" href="src/css/lightslider.css"/>
+    <style>
+      body{
+        background-color: #333;
+      }
+      
+      #wrapper{
+        margin: 0 auto;
+        max-width: 960px;
+        box-sizing: border-box; 
+        position: relative;        
+      }
+      
+      /*Applied CSS by Anu Kulshrestha for h1*/
+      h1{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        text-align: center;
+        color: #fff;
+      }
+      
+      /*Applied CSS by Anu Kulshrestha for h2*/
+      h2{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
+        color: #fff;
+      }
+      
+    	ul{
+			  list-style: none outside none;
+		    padding-left: 0;
+        margin: 0;
+		  }
+      
+      .demo .item{
+        margin-bottom: 60px;         
+      }
+      
+      /*Applied CSS by Anu Kulshrestha for div holding the carousel*/
+      .item{
+        position:absolute;
+        top: 130px;
+        left: 25%;
+      }
+      
+		  .content-slider li{
+        background-color: #ed3020;
+        text-align: center;
+        color: #FFF;
+		  }
+      
+		  .content-slider h3 {
+        margin: 0;
+        padding: 70px 0;
+		  }
+      
+      /*Applied CSS by Anu Kulshrestha for container div having class demo*/
+		  .demo{
+			  width: 80%;
+		  }
+      
+      /*Applied CSS by Anu Kulshrestha for img tag*/
+      img{
+        width: 100%;
+      }
+      
+      /*Applied media queries for responsive website by Anu Kulshrestha*/
+      @media screen and (min-width:769px) and (max-width:960px){
+        .lSAction > a {
+          width: 6.8%;
+        }
+        .item{          
+          left: 15%;
+        }
+      }
+      
+      /*Applied media queries for responsive website by Anu Kulshrestha*/
+      @media screen and (min-width:481px) and (max-width:767px){
+        #wrapper{
+          width: auto;
+          margin: 0 auto;
+        } 
+        .item{          
+          left: 3%;
+        }
+        .lSAction > a {
+          width: 6.8%;
+        }
+      }
+      
+      /*Applied media queries for responsive website by Anu Kulshrestha*/
+      @media screen and (min-width:320px) and (max-width:480px){
+        #wrapper{
+          width: auto;
+          margin: 0 auto;
+        } 
+        .item{          
+          left: 2%;
+        }
+        .lSAction > a {
+          width: 8.0%;
+        }
+      }  
+      
+      /*Applied media queries for responsive website by Anu Kulshrestha for mobile view*/
+      @media screen and (max-width:319px){
+        #wrapper{
+          width: auto;
+          margin: 0 auto;
+        } 
+        .item{          
+          left: 0.5%;
+        }
+        .lSAction > a {
+          width: 8.2%;
+        }
+      }  
+      
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="src/js/lightslider.js"></script> 
+    
+  <script>
+    $(document).ready(function(){
+			$("#content-slider").lightSlider({
+        loop: true,
+        keyPress: true
+      });
+      $('#image-gallery').lightSlider({
+        gallery: true,
+        item: 1,
+        thumbItem: 9,
+        slideMargin: 0,
+        speed: 500,
+        auto: true,
+        loop: true,
+        onSliderLoad: function() {
+          $('#image-gallery').removeClass('cS-hidden');
+        }  
+      });
+		});
+  </script>
+</head>
+<body>
+	<div id="wrapper" class="demo" style="background-color: #ccc; padding-top: 1px; height: 700px;">
+    <h1>jQuery Carousel</h1>
+    <h2>Image Slideshow</h2>  
+    <div class="item" style="width: 95%; border-radius: 10px">               
+      <div class="clearfix" style="max-width:474px;">
+        <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+          <li data-thumb="src/img/thumb/cS-1.jpg"> 
+            <img src="src/img/cS-1.jpg" alt="image 1"  />
+          </li>
+          <li data-thumb="src/img/thumb/cS-2.jpg"> 
+            <img src="src/img/cS-2.jpg" alt="image 2"  />
+          </li>
+          <li data-thumb="src/img/thumb/cS-3.jpg"> 
+            <img src="src/img/cS-3.jpg" alt="image 3"  />
+          </li>
+          <li data-thumb="src/img/thumb/cS-4.jpg"> 
+            <img src="src/img/cS-4.jpg" alt="image 4"  />
+          </li>
+          <li data-thumb="src/img/thumb/cS-5.jpg"> 
+            <img src="src/img/cS-5.jpg" alt="image 5" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-6.jpg"> 
+            <img src="src/img/cS-6.jpg" alt="image 6" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-7.jpg"> 
+            <img src="src/img/cS-7.jpg" alt="image 7" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-8.jpg"> 
+            <img src="src/img/cS-8.jpg" alt="image 8" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-9.jpg"> 
+            <img src="src/img/cS-9.jpg" alt="image 9" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-10.jpg"> 
+            <img src="src/img/cS-10.jpg" alt="image 10" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-11.jpg"> 
+            <img src="src/img/cS-11.jpg" alt="image 11" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-12.jpg"> 
+            <img src="src/img/cS-12.jpg" alt="image 12" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-13.jpg"> 
+            <img src="src/img/cS-13.jpg" alt="image 13" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-14.jpg"> 
+            <img src="src/img/cS-14.jpg" alt="image 14" />
+          </li>
+          <li data-thumb="src/img/thumb/cS-15.jpg"> 
+            <img src="src/img/cS-15.jpg" alt="image 15" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>	
+  <noscript>
+    This page requires JavaScript. Please enable it in your browser. 
+  </noscript>
+</body>
