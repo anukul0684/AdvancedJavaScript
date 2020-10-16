@@ -1,0 +1,551 @@
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <title>21129_2001_Assignment2(Kulshrestha_Anu)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Sail&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <!--
+
+    ///////////////////////////////////////////////////////////////////////
+    //                                                                   //
+    //                  Program Name: Web Development                    //
+    //                   Course Name: Advanced JavaScript                //
+    //                         Batch: WDD7 - Jan 2020                    //
+    //                    Instructor: Brent Scott                        //
+    //               Assignment No. : 1                                  // 
+    //                                                                   //
+    //                  Submitted by: Anu Kulshrestha                    //
+    //                                                                   //
+    ///////////////////////////////////////////////////////////////////////
+
+    -->
+    <style>
+      /*CSS for web page*/
+      body{
+        font-family: Lora, 'Times New Roman', serif;
+        font-size: 16px;
+        background-image: url(images/background2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-weight: 400;
+      }
+      /*CSS for main container in page*/
+      #main_container{
+        margin: 0 auto;
+        max-width: 960px;
+        padding-top: 1px;
+        min-height: 600px;    
+        opacity: 0.85;        
+        color: #003;       
+        box-sizing: border-box;
+      }      
+       /*CSS for header element in page*/
+      header{
+        padding-top: 1px;
+        height: 150px;
+        background-color: #bbb;
+        border-top-right-radius: 70px;
+        box-sizing: border-box;
+        perspective: 400px;
+      }
+       /*CSS for h1 tag in page*/
+      h1{
+        font-family: Sail, 'Great Vibes', cursive;
+        font-weight: 400;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #003;
+        font-size: 2.2em;
+        box-sizing: border-box;
+      }
+       /*CSS for nav element in page*/
+      nav{
+        height: 50px;
+        background-color: #FF8C00;
+        padding-top: 1px;
+        box-sizing: border-box;
+      }
+      /*CSS for unordered list in page*/
+      ul{
+        margin-left: 150px;
+        margin-top: 10px;
+        box-sizing: border-box;
+      }
+      /*CSS for list items in page*/
+      ul li.main_nav{
+        list-style-type: none;
+        display: inline-block;  
+        width: 120px;
+        text-align: center;
+        padding: 5px 0 5px 0; 
+        transition: all 1s ease-in-out;
+      }
+      /*CSS for anchor tag in page*/
+      a{
+        text-decoration-line: none;
+        color: #003;            
+      }
+      /*CSS for hover on list items in page*/
+      li:hover{
+        background-color: #aaa;
+        border-top-right-radius: 70px;
+        border-bottom-left-radius: 70px;
+      }
+      
+      .current_page{
+        background-color: #aaa;
+        border-top-right-radius: 70px;
+        border-bottom-left-radius: 70px;
+      }
+      /*CSS for section element in page*/
+      section{
+        min-height: 430px;
+        background-color: #ccd;
+        box-sizing: border-box;
+      }
+       /*CSS for form in page*/
+      form{
+        box-sizing: border-box;
+      }
+      /*CSS for fieldset tag in page*/
+      fieldset{
+        margin-top: 5px;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        width: 65%;
+        border: 2px groove #333;
+        float: left;
+        margin-left: 15%;
+        border-radius: 20px;        
+      }
+      /*CSS for legend tag in page*/
+      legend{       
+        color: #003;        
+      }
+      /*CSS for label tag in page*/
+      label{ 
+        display:inline-block;
+        width: 25%;
+        text-align: right;
+        margin-left: 120px;
+        margin-top: 10px;
+      }
+      /*CSS for input tag in page*/
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"]{
+        width: 35%;
+        text-align: left;
+        margin-left: 5px;
+        margin-top: 10px;
+        border: 1px solid #003;
+      }
+      /*CSS for button elements in page*/
+      #submit_button, #reset_button{
+        font-family: Lora, 'Times New Roman', serif;
+        font-size: 16px;
+        margin-top: 20px;
+        width: 120px;
+        padding: 5px;
+        background-color: #ccc;
+        border: 2px groove #333;         
+        color: #003;
+        transition: all .8s ease-in-out;
+      }
+      /*CSS for hover on button elements in page*/
+      #submit_button:hover, #reset_button:hover{
+        background-color: #FF8C00;        
+      }
+      /*CSS for submit button in page*/
+      #submit_button{
+        clear: both;
+        float: left;
+        margin-left: 350px;       
+      }
+      /*CSS for reset button in page*/
+      #reset_button{
+        float: left;             
+        margin-left: 10px;                
+      }
+      /*CSS for footer in page*/
+      footer{
+        height: 70px;
+        border-bottom-left-radius: 70px;
+        background-color: #aaa;
+        box-sizing: border-box;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <div id="body_container">
+      <div id = "main_container">
+        <header>
+          <h1>Aspiring Models Group</h1>
+          <nav>
+            <ul id = "main_navigation">
+              <li class="main_nav"><a href="#">Home</a></li>
+              <li class="main_nav"><a href="#">Photoshoots</a></li>
+              <li class="main_nav"><a href="#">Events</a></li>
+              <li class="main_nav"><a href="#">About Us</a></li>
+              <li class="main_nav current_page"><a href="#">Join Us</a></li>            
+            </ul>            
+          </nav>
+        </header>
+        <section>
+          <form id = "membership" 
+                name = "membership"                  
+                method = "post"                
+                autocomplete = "off"
+                novalidate>
+            <fieldset id="model_registration">
+              <legend><h2>Registration Form</h2></legend>
+              <label for="first_name">First Name <sup>*</sup> :</label>
+              <input type="text" id="first_name" name="first_name" /><br />
+              <label for="last_name">Last Name <sup>*</sup> :</label>
+              <input type="text" id="last_name" name="last_name" /><br />
+              <label for="email_address">Email Address <sup>*</sup> :</label>
+              <input type="email" id="email_address" name="email_address"/><br />
+              <label for="phone_number">Mobile Number <sup>*</sup> :</label>
+              <input type="tel" id="phone_number" name="phone_number" /><br />
+              <label for="postal_code">Postal Code <sup>*</sup> :</label>
+              <input type="text" id="postal_code" name="postal_code" /><br />
+              <label for="personal_profile">Profile Link&nbsp;&nbsp; :</label>
+              <input type="url" id="personal_profile" name="personal_profile" /><br />
+              <label for="model_age">Age&nbsp;&nbsp; :</label>
+              <input type="number" id="model_age" name="model_age" /><br />
+            </fieldset>
+            <input id="submit_button" type="button" value="Submit" onclick = "submitPage(this.form);"/>
+            <input id="reset_button" type="reset" value="Clear Form" />
+          </form>          
+        </section>
+        <footer>
+        </footer>
+      </div>
+    </div>
+    <script>     
+      
+      //Global variables for all functions
+      var check_pattern;
+      var pattern_result;
+      //function to call on submit button click
+      function submitPage(form_details){  
+        //call the function to check if the first name is filled and have no numeric or special character
+        all_went_well = checkName(document.getElementById("first_name").value);
+        //call the function to check if the last name is filled and have no numeric or special character
+        if(all_went_well)
+        {
+          alert("First Name ok");
+          all_went_well = checkName(document.getElementById("last_name").value);
+        }
+        //call the function to check if the Email address is filled and as per the ruberics
+        if(all_went_well)
+        {
+          alert("Last Name ok");
+          all_went_well = checkEmailAddress();
+        }
+        //call the function to check if the mobile number is filled and as per the ruberics
+        if(all_went_well)
+        {
+          alert("Email address ok");
+          all_went_well = checkMobileNumber();
+        }
+        //call the function to check if the Postal address is filled and as per the ruberics
+        if(all_went_well)
+        {
+          alert("Mobile number ok");
+          all_went_well = checkPostalCode();
+        }
+        //call the function to check if the URL format is filled then is as per the ruberics
+        if(document.getElementById("personal_profile").value != "")
+        {
+          //call function to check URL format is filled correctly as per the ruberics
+          check_url_flag = checkURLFormat();
+          //check if the URL format or age is filled wrongly as per the ruberics
+          if((check_url_flag==false))
+          {
+            //inform user that URL format is filled wrongly as per the ruberics
+            alert("Enter URL correctly. Let's try again filling the form.");
+            return false;
+          }
+        }
+        //call the function to check if the age is filled then is as per the ruberics
+        if(document.getElementById("model_age").value != "")
+        {
+          //call function to check age is filled correctly as per the ruberics
+          check_age_flag = checkAge();
+          //check if the URL format or age is filled wrongly as per the ruberics
+          if((check_age_flag==false))
+          {
+            //inform user that age is filled wrongly as per the ruberics
+            alert("Enter Age correctly. Let's try again filling the form.");
+            return false;
+          }
+        }       
+        
+        //if any of the content had issue show this to user and return false.
+        if(!(all_went_well))
+        {
+          alert("Something not well. Let's try again filling the form.");
+          return false;          
+        }
+        else //else show user that all is correct and submit the form.
+        {                
+          alert("All is well");
+          form_details.action = "http://scott-media.com/test/form_display.php";
+          form_details.submit();          
+        }
+      }
+      
+      //function for first name and last name
+      function checkName(name_content)
+      {        
+        //check if the first name and last name are not empty
+        if((name_content!="") && (name_content!=null))
+        {          
+          //negation regex for first name or last name
+          check_pattern = /[^a-zA-Z\-]/g;
+          //check if anything is present other than letters, and a hyphen
+          pattern_result = name_content.match(check_pattern);  
+          //if anything is present other than letters, and a hyphen, inform user
+          if(pattern_result!=null){
+            alert("The name cannot have " + pattern_result + ". Please enter again.");            
+            return false;
+          }         
+        }
+        else // inform user to not keep first name and last name empty
+        {
+          alert("First Name and Last Name should not be empty. Please enter it.");
+          return false;
+        }
+        return true;
+      }
+      
+      //We here check for Email address to be present and in correct format in the function
+      function checkEmailAddress(){
+        //variable for accepting the email id from user
+        var email_id = null;            
+
+        //variable initialized for user name in email id
+        var user_name = null;
+        
+        //variable initialized for extracting the domain part of email id
+        var domain_part = null;
+
+        //variable initialized for @ position in email id
+        var at_position = -1;     
+        
+        //variable initialized for splitting email address at "@"
+        var email_array = null;
+        
+        //get the email id into a variable
+        email_id = document.getElementById("email_address").value;
+
+        //if condition for user to enter something other than "" or null
+        if((email_id != null) && (email_id != ""))
+        {   
+          //get the position of @ symbol in email
+          at_position = email_id.indexOf("@");
+          //check that it is present, also not withing first 3 places.
+          if(at_position !=-1 && at_position !=0 && at_position !=1 && at_position!=2){
+            //split the email address at @
+            email_array = email_id.split("@");
+            //assign first part to user_name variable
+            user_name = email_array[0];
+            //a regex to check the user name format. We use Negation regex
+            check_pattern = /[^[a-zA-Z](\_|\.)?[a-zA-Z]\d?]/g;
+            //check if any other than above expression is present in the user name
+            pattern_result = user_name.match(check_pattern);
+            //if nothing other above expression is found, we are good to ahead with further checks
+            if(pattern_result==null){
+              // assign the domain part to a variable
+              domain_part = email_array[1];
+              //check it is not null or empty
+              if(domain_part!=null || domain_part!=""){
+                
+                //check if the . is present and is not at last or second last place
+                if((domain_part.indexOf(".")!=-1) 
+                  && (domain_part.indexOf(".")!=0) 
+                  && (domain_part.indexOf(".")!=1) 
+                  && (domain_part.indexOf(".")!=2)
+                  && (domain_part.indexOf(".")<(domain_part.length-1))
+                  && (domain_part.indexOf(".")<(domain_part.length-2))){
+                  //now as dot is at correct place, we split at .
+                  var domain_array = domain_part.split(".");
+                  // regex to check the domain part before .
+                  check_pattern = /[^a-zA-Z]/g;
+                  //check if anything other than letters are entered
+                  pattern_result = domain_array[0].match(check_pattern);
+                  //if nothing other than letters are entered, we go ahead with the further checks
+                  if(pattern_result==null){
+                    //regex to check the domain part after .
+                    check_pattern = /[^a-zA-Z]/g;
+                    //check if anything other than letters are entered
+                    pattern_result = domain_array[1].match(check_pattern);
+                    //if nothing is other than letters are entered, we return true
+                    if(pattern_result==null){
+                      return true;
+                    }//end if for domain part after .
+                    //else we inform user that other than letters, things were entered
+                    else
+                    {
+                      alert("Adding " + pattern_result + " is not valid.");
+                      return false;
+                    }
+                  }//end if for domain part before .
+                  //else inform that domain part before . has issues
+                  else{
+                    alert("Adding " + pattern_result + " is not valid.");
+                    return false;
+                  }
+                }//end if for . present and is at correct place 
+                //else inform user for absence or wrong place for .
+                else{
+                  alert("Either the '.' is not present or is not at valid place.");
+                  return false;
+                }
+              }// end if for checking domain part present in email id
+              //else inform user for domain part not entered.
+              else{
+                alert("Domain part of email address is not present.");
+                return false;
+              }
+            }// end if for checking valid user name
+            //else inform user that entered user name is incorrect
+            else{
+              alert(pattern_result + " present in user name which is not valid.");
+              return false;
+            }
+          }// end if for checking the presence of @ and at correct position
+          //else inform user for absence and incorrect position of @
+          else{
+            alert("Either the '@' is not present or is not at valid place.");
+            return false;
+          }
+        }// end if for no value entered in email address
+        else //inform user to enter email id if found blank or null
+        {
+          alert("Email id is required. Please enter it.");          
+          return false;
+        }      
+      }
+      
+      //We here check for Mobile number to be present and in correct format in the function
+      function checkMobileNumber()
+      {
+        //variable to get the value of mobile number entered by user
+        var get_number_value = document.getElementById("phone_number").value;
+        
+        //check if the user has entered the mobile number or not
+        if((get_number_value != "") && (get_number_value != null))
+        {
+          //below is the expression to check (204) 555-1212 or 204.444.2323 or 204-555-3434 formats
+          check_pattern = /^\(?\d{3}\)?(\s|\-|\.)\s?\d{3}(\-|\.|\s)\d{4}$/;
+          //check if the entered value is any match with above expression
+          pattern_result = get_number_value.match(check_pattern);
+          //if no match found, inform user
+          if(pattern_result==null){
+            alert("Entered mobile number is not in a valid format.");
+            return false;
+          }
+          return true;
+        }
+        //say to user that mobile number not entered and all is empty.
+        else
+        {          
+          alert("Mobile Number is required. Please enter it.");          
+          return false;
+        }        
+        //all ok then come here and return true
+        return true;
+      }
+      
+      //We here check for Postal Code to be present and in correct format in the function
+      function checkPostalCode()
+      {
+        //get the postal code into a variable
+        var get_postal_code = document.getElementById("postal_code").value;
+        //check if not empty
+        if((get_postal_code!=""))
+        {
+          //check if the length is of CANADA Postal Code format          
+          check_pattern = /^[a-zA-Z]{1}\d{1}[a-zA-Z]{1}\s?\d{1}[a-zA-Z]{1}\d{1}$/gi; 
+          //check if the entered postal code has the match with above expression
+          pattern_result = get_postal_code.match(check_pattern);
+          //if the postal code has no match with above expression, inform user and return.
+          if(pattern_result==null){
+            alert("The entered postal code is incorrect. Please enter it again.");
+            return false;
+          }
+        }
+        //inform user that they need to fill the postal code. it can not be empty and return false
+        else
+        {
+          alert("Postal code is required. Please enter it.");
+          return false;
+        }
+        return true;
+      }
+      
+      //function to check http:// and https:// at first position in URL if entered as per ruberics
+      function checkURLFormat()
+      {      
+        // variable to get the URL link
+        var get_url = document.getElementById("personal_profile").value;
+        // process the data if user at all enters that.
+        if(get_url!=null && get_url!=""){
+          //check for entered value starts from either http:// or https://
+          check_pattern = /^(http:\/\/|https:\/\/)/i;
+          //check if the entered value has any match with above expression
+          pattern_result = get_url.match(check_pattern);
+          // if expression is not matched with entered URL, inform user
+          if(pattern_result==null){
+            alert("The URL should start from http:// or https://. Please enter correct URL");
+            return false;
+          }
+          return true;
+        }
+      }
+      
+      //function to check age is a number if entered
+      function checkAge()
+      {
+        //variable to get the value of age if entered by user.
+        var get_age = document.getElementById("model_age").value;
+        // process the entered value if at all user enters
+        if(get_age!=null && get_age!=""){
+          //Negation regex
+          check_pattern = /[^\d]/g;
+          //check if other than number if anything is entered.
+          pattern_result = get_age.match(check_pattern);
+          //if nothing other number is found
+          if(pattern_result==null){
+            //parse entered value from string to int
+            get_age = parseInt(get_age);
+            //check if age is incorrect. If yes, inform user.
+            if(get_age<1 || get_age>100){
+              alert("Not a correct age. Please enter it again.");
+              return false;
+            }                      
+          }
+          //if anything other than number is found. Inform user that it is invalid
+          else{
+            alert("The entered value has " + pattern_result + " that is not allowed in age.");
+            return false;
+          }
+          return true;  
+        }
+      }
+    </script>
+    <noscript>
+      This page requires JavaScript. Please turn it on.
+    </noscript>
+  </body>
+</html>
