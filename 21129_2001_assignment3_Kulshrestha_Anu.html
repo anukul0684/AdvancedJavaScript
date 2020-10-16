@@ -1,0 +1,1601 @@
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <title>21129_2001_assignment3_Kulshrestha_Anu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <!--
+
+    ///////////////////////////////////////////////////////////////////////
+    //                                                                   //
+    //                  Program Name: Web Development                    //
+    //                                                                   //
+    //                   Course Name: Advanced JavaScript                //
+    //                         Batch: WDD7 - Jan 2020                    //
+    //                    Instructor: Brent Scott                        //
+    //               Assignment No. : 3                                  // 
+    //                                                                   //
+    //                  Submitted by: Anu Kulshrestha                    //
+    //                                                                   //
+    ///////////////////////////////////////////////////////////////////////
+
+    -->
+    <style>
+      /* Set CSS for whole page */
+      body{
+        font-family: Lora, 'Gabriola', serif;
+        font-size: 16px;
+        font-weight: 400;
+        background-color:#ADD8E6;        
+      }
+      
+      #wrapper{
+        padding-top: 1px;
+        border: 1px solid #fcc;
+        max-width: 960px;
+        min-height: 730px;
+        margin: 0 auto;
+        background-color: #ccc;
+        border-radius: 6px;        
+        box-sizing: border-box;
+        position: relative;        
+      }
+      
+      header{        
+        height: 135px;
+        position: fixed;
+        top: 0;
+        left: 10px;
+        width: 98.5%;        
+        z-index: 9999; 
+        background-color: #ccc;
+        color: #338;
+      }
+      
+      h1{
+        text-align: center;       
+        font-weight: 700;
+      }
+      
+      header p{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      
+      header p#welcome_user{
+        text-align: right;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        width: 20%;
+        right: 20%;
+        top: 0;
+      }
+      
+      header button#clear_local_storage{
+        position: absolute;
+        top: 100px;
+        right: 20%;
+        padding-right: 2%;
+        padding-left: 2%;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        opacity: 0;
+      }
+      
+      section{
+        position: absolute;
+        top: 127px;
+        width: 100%;
+        min-height: 600px;
+        background-color: #ddf;
+        padding-top: 1px;       
+      }
+      
+      /* Set CSS for main navigation bar of the page */
+      #navigation_menu{
+        font-family: Lora, 'Gabriola', serif;
+        border: 1px solid #000;
+        background-color: #ADD8E6;
+        box-sizing: border-box;
+        min-height: 650px;
+        box-sizing: border-box;
+      }
+      
+      #navigation_menu ul{
+        box-sizing: border-box;
+      }
+      
+      /* Set CSS for list items of the main navigation menu */
+      #navigation_menu li{
+        width: 25%;
+        margin-bottom: 4px;   
+        padding-left: 4%;
+        padding-right: 1%;
+        box-sizing: border-box;
+        
+      }
+      
+      #navigation_menu li:first-child{
+        margin-left: 10%;
+      }
+      
+      #navigation_menu li:last-child{
+        padding-left: 7%;
+      }
+      
+      #navigation_menu li a{        
+        display: inline-block;  
+        border-radius: 10px; 
+        color: #338;
+      }
+      
+      h2{
+        margin:0;
+        padding: 0;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+      
+      #play_enjoy{
+        display: grid;
+        grid-template-columns: 27% auto;
+        grid-template-rows: 50% auto;
+        
+        width: 95%;
+        margin-left: 2%;
+        box-sizing: border-box;
+      }
+      
+      #mycolor{
+        background-color: #ccc;
+        color: #338;
+        padding: 5px;
+        text-align: right;
+      }
+      
+      #favcolor{
+        width: 100%;
+        margin-top: 5px;
+      }
+      
+      #bubble_show{
+        border: 2px dashed #000;
+        margin: 0;        
+      }      
+      
+      #bubble_press{    
+        font-family: Lora, 'Gabriola', serif;        
+        font-weight: 700;
+        font-size: 1.4em;        
+        color: #338;
+      }
+        
+      #fun_drag_drop{
+        min-height: 700px;
+      }
+      
+      #play_learn{
+        display: grid;
+        grid-template-columns: 55% auto;
+          
+        width: 95%;
+        margin-left: 2%;
+        box-sizing: border-box;
+        border: 2px groove #000;
+        box-sizing: border-box;
+      }
+      
+      #all_numbers{
+        display: grid;
+        
+        grid-template-rows: 20% 20% 20% 20% 20%;
+        width: 95%;
+        height: auto;
+        /*border: 1px dotted #000;*/
+        box-sizing: border-box;
+        position: relative;
+      }
+      
+      #number_1,#number_2,#number_3,#number_4,#number_5{
+        position: absolute;
+        left: 1%;
+        width: 20%;
+        margin: 2%;
+        margin-left: 40%;
+        height: 10%;
+        border: 2px dashed #000;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background-color: #4a4;
+        text-align: center;
+        padding-top: 2%;
+        font-weight: 700;
+        font-size: 1.2em;
+      }
+      #number_1{
+        top: 5%;
+      }
+      #number_2{
+        top: 25%;
+      }
+      #number_3{
+        top: 45%;
+      }
+      #number_4{
+        top: 65%;
+      }
+      #number_5{
+        top: 85%;
+      }
+      
+      #all_items{
+        display: grid;        
+        grid-template-rows: 20% 20% 20% 20% 20%;
+        width: 48%;
+        height: auto;
+        /*border: 1px dotted #000;*/
+        box-sizing: border-box;        
+      }
+      
+      #item_1,#item_2,#item_3,#item_4,#item_5{
+        width: 90%;
+        margin: 2%;
+        margin-left: 5%;
+        height: 80px;
+        border: 2px dashed #000;
+        font-size: 1.5em;
+        font-weight: 700;
+        background-color: #daa;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+      }
+      
+      form{
+        box-sizing: border-box;
+      }
+      /*CSS for fieldset tag in page*/
+      fieldset{
+        margin-top: 5%;
+        padding-top: 2%;
+        padding-bottom: 5%;
+        width: 75%;
+        border: 2px groove #333;        
+        margin-left: 11%;
+        border-radius: 20px;        
+      }
+      /*CSS for legend tag in page*/
+      legend{       
+        color: #003;        
+      }
+      /*CSS for label tag in page*/
+      fieldset label{ 
+        display:inline-block;
+        width: 35%;
+        text-align: right;
+        margin-left: 70px;
+        margin-top: 10px;
+      }
+      /*CSS for input tag in page*/
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="color"]{
+        width: 35%;
+        text-align: left;
+        margin-left: 5px;
+        margin-top: 10px;
+        border: 1px solid #003;
+      }
+      
+      #joinus button{
+        padding: 10px;
+        margin: 10px;
+        margin-left: 35%;
+        width: 30%;   
+        font-family: Lora, 'Gabriola', serif;        
+        font-weight: 700;
+      }
+      
+      button{
+        font-family: Lora, 'Gabriola', serif;        
+        font-weight: 700;
+      }
+    </style>
+    
+    <script>
+      //page has loaded
+      
+    </script>
+  </head>
+
+  <body id="main_page">
+    <div id = "wrapper">
+      <header>
+        <h1>Fun 'n' Play</h1>
+        <p>Learn While You Play!</p>
+        <p id="welcome_user"></p>
+        <button id="clear_local_storage">Delete Your Data</button>
+      </header>
+      <section>        
+        <!-- Div to get the data into navigation menu using jQuery plugin for tabs -->
+        <div id="navigation_menu">
+          <ul>
+            <li><a href="#fun_canvas">Learn Colors</a></li>
+            <li><a href="#fun_drag_drop">Learn Counting</a></li>
+            <li><a href="#joinus">Join Us</a></li>
+          </ul>
+          <!-- Div for Animation into Canvas tag -->
+          <div id = "fun_canvas">
+            <h2>Choose a Color and Click "Show Bubbles"</h2>
+            <div id="play_enjoy">
+              <label id="mycolor" for="favcolor">Select your favorite color:</label>
+              <input type="color" id="favcolor" name="favcolor" value="#ff0000"> 
+              <button id="bubble_press">Show Bubbles</button>             
+              <canvas id="bubble_show">
+                Sorry, this browser does not support canvas. Please upgrade.
+              </canvas>
+            </div>            
+          </div>
+          <!-- Div for drag and drop feature-->
+          <div id = "fun_drag_drop">
+            <h2>Count the items on your right and drag 'n' drop the correct Number over it</h2>
+            <div id="play_learn">
+              <div id="all_numbers">
+                <div id="number_2" 
+                     draggable="true" 
+                     ondragstart="startMoving(event);" 
+                     ondragleave="changeBack(event);">2</div>
+                <div id="number_1" draggable="true" 
+                     ondragstart="startMoving(event);" 
+                     ondragleave="changeBack(event);">1</div>
+                <div id="number_5" draggable="true" 
+                     ondragstart="startMoving(event);" 
+                     ondragleave="changeBack(event);">5</div>
+                <div id="number_4" draggable="true" 
+                     ondragstart="startMoving(event);" 
+                     ondragleave="changeBack(event);">4</div>
+                <div id="number_3" draggable="true" ondragstart="startMoving(event);" ondragleave="changeBack(event);">3</div>
+              </div>
+              <div id="all_items">
+                <div id="item_5" ondragover="showChange(event);" 
+                      ondragleave="changeBack(event);"
+                      ondrop="acceptAnswer(event);">
+                        &#42;&nbsp;&#42;&nbsp;&#42;&nbsp;&#42;&nbsp;&#42;
+                </div>
+                <div id="item_3" ondragover="showChange(event);" 
+                      ondragleave="changeBack(event);"
+                      ondrop="acceptAnswer(event);">
+                        &#36;&nbsp;&#36;&nbsp;&#36;
+                </div>
+                <div id="item_1" ondragover="showChange(event);" 
+                      ondragleave="changeBack(event);"
+                      ondrop="acceptAnswer(event);">
+                        &#64;
+                </div>
+                <div id="item_2" ondragover="showChange(event);" 
+                      ondragleave="changeBack(event);"
+                      ondrop="acceptAnswer(event);">
+                        &#37;&nbsp;&#37;
+                </div>
+                <div id="item_4" ondragover="showChange(event);" 
+                      ondragleave="changeBack(event);"
+                      ondrop="acceptAnswer(event);">
+                        &amp;&nbsp;&amp;&nbsp;&amp;&nbsp;&amp;
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Div to get the data for local Storage -->
+          <div id = "joinus">
+            <form id = "membership_form" 
+                  name = "membership_form"                  
+                  method = "post"                
+                  autocomplete = "off"
+                  novalidate>
+              <fieldset id="kid_registration">
+                <legend><h2>Registration Form for Your Kid</h2></legend>
+                <label for="first_name">Child's Name <sup>*</sup> :</label>
+                <input type="text" id="first_name" name="first_name" /><br />              
+                <label for="email_address">Parent's Email Id <sup>*</sup> :</label>
+                <input type="email" id="email_address" name="email_address"/><br />
+                <label for="phone_number">Parent's Mobile &#35; <sup>*</sup> :</label>
+                <input type="tel" id="phone_number" name="phone_number" /><br />
+                <label for="kid_favcolor">Child's Favourite Color :</label>
+                <input type="color" id="kid_favcolor" name="kid_favcolor" value="#ff0000"/>                              
+              </fieldset>
+            </form>          
+            <button id="register_details" onclick = "submitPage(this.form);">Save Details</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ================================ End of HTML code =================================== -->
+    <noscript>
+      This page requires JavaScript. Please enable it in your browser. 
+    </noscript>
+    
+    <!-- jQuery from a CDN to use jQuery if required-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- jQuery snippet for jQuery UI for navigation menu-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      
+      /*======================Code for Local Storage functionality to work==========================*/
+      
+      //Global variables for functions doing local storage
+      var check_pattern;
+      var pattern_result;
+      var save_form;
+      var key_name;
+      var get_the_key_name;
+      var key_value;
+      var get_the_key_value;
+      var form_visited=0;
+      
+      //function to call on submit button click
+      function submitPage(form_details){  
+        //call the function to check if the first name is filled and have no numeric or special character
+        var all_went_well = checkName(document.getElementById("first_name").value);
+          
+        if(all_went_well){
+          //if name is correct, we check email address
+          all_went_well = checkEmailAddress();
+        }
+        //call the function to check if the mobile number is filled and as per the ruberics
+        if(all_went_well)
+        {
+          //if email address is correct, we check mobile number.
+          all_went_well = checkMobileNumber();
+        }            
+        
+        //if any of the content had issue show this to user and return false.
+        if(!(all_went_well))
+        {
+          alert("Something not well. Let's try again filling the form.");
+          return false;          
+        }
+        else //else go and store the data into local storage and show it to user
+        {                
+          storeDetails();                       
+        }
+      }
+      
+      //main function to store the data into local storage
+      function storeDetails(){        
+        //Code to check if browser support local storage
+        if(typeof(Storage) != "undefined"){
+          /*if we get here, local storage is supported. 
+          Hence, go ahead and save data into local storage.*/
+          
+          //first we get the form into a variable
+          save_form = document.getElementById("membership_form");
+          
+          //now we loop all elements from form and save data one by one 
+          //id goes to key, and the value of input goes to value of localStorage
+          for(i=0;i<save_form.elements.length;i++){
+            //we avoid fielset as it has id
+            if(save_form.elements[i].id != "kid_registration"){
+              key_name = save_form.elements[i].id;
+              key_value = save_form.elements[i].value;
+              localStorage.setItem(key_name,key_value);
+            }
+          }
+          //Everytime you go and call this function to add or update local storage 
+          //number of visit counter goes back to 1.
+          form_visited = 1;
+          
+          //whatever the count is that we got from form_visited counter, 
+          //we set it to the key of "num_of_visits"
+          localStorage.setItem("num_of_visits",form_visited); 
+          
+          //now that the data is stored in local storage, we inform user the same
+          alert("You are now registered with Fun 'n' Play");   
+          //we are not going to another page, we reload the page here.
+          location.reload();
+        }//checking local storage supported by browser ends here
+      }
+      
+      
+      //function for checking child's name
+      function checkName(name_content)
+      {        
+        //check if the first name and last name are not empty
+        if((name_content!="") && (name_content!=null))
+        {          
+          //negation regex for first name or last name
+          check_pattern = /[^a-zA-Z\-]/g;
+          //check if anything is present other than letters, and a hyphen
+          pattern_result = name_content.match(check_pattern);  
+          //if anything is present other than letters, and a hyphen, inform user
+          if(pattern_result!=null){
+            alert("The name cannot have " + pattern_result + ". Please enter again.");            
+            return false;
+          }         
+        }
+        else // inform user to not keep first name and last name empty
+        {
+          alert("Child's Name should not be empty. Please enter it.");
+          return false;
+        }
+        return true;
+      }
+      
+      //We here check for Email address to be present and in correct format in the function
+      function checkEmailAddress(){
+        //variable for accepting the email id from user
+        var email_id = null;            
+
+        //variable initialized for user name in email id
+        var user_name = null;
+        
+        //variable initialized for extracting the domain part of email id
+        var domain_part = null;
+
+        //variable initialized for @ position in email id
+        var at_position = -1;     
+        
+        //variable initialized for splitting email address at "@"
+        var email_array = null;
+        
+        //get the email id into a variable
+        email_id = document.getElementById("email_address").value;
+
+        //if condition for user to enter something other than "" or null
+        if((email_id != null) && (email_id != ""))
+        {   
+          //get the position of @ symbol in email
+          at_position = email_id.indexOf("@");
+          //check that it is present, also not withing first 3 places.
+          if(at_position !=-1 && at_position !=0 && at_position !=1 && at_position!=2){
+            //split the email address at @
+            email_array = email_id.split("@");
+            //assign first part to user_name variable
+            user_name = email_array[0];
+            //a regex to check the user name format. We use Negation regex
+            check_pattern = /[^[a-zA-Z](\_|\.)?[a-zA-Z]\d?]/g;
+            //check if any other than above expression is present in the user name
+            pattern_result = user_name.match(check_pattern);
+            //if nothing other above expression is found, we are good to ahead with further checks
+            if(pattern_result==null){
+              // assign the domain part to a variable
+              domain_part = email_array[1];
+              //check it is not null or empty
+              if(domain_part!=null || domain_part!=""){
+                
+                //check if the . is present and is not at last or second last place
+                if((domain_part.indexOf(".")!=-1) 
+                  && (domain_part.indexOf(".")!=0) 
+                  && (domain_part.indexOf(".")!=1) 
+                  && (domain_part.indexOf(".")!=2)
+                  && (domain_part.indexOf(".")<(domain_part.length-1))
+                  && (domain_part.indexOf(".")<(domain_part.length-2))){
+                  //now as dot is at correct place, we split at .
+                  var domain_array = domain_part.split(".");
+                  // regex to check the domain part before .
+                  check_pattern = /[^a-zA-Z]/g;
+                  //check if anything other than letters are entered
+                  pattern_result = domain_array[0].match(check_pattern);
+                  //if nothing other than letters are entered, we go ahead with the further checks
+                  if(pattern_result==null){
+                    //regex to check the domain part after .
+                    check_pattern = /[^a-zA-Z]/g;
+                    //check if anything other than letters are entered
+                    pattern_result = domain_array[1].match(check_pattern);
+                    //if nothing is other than letters are entered, we return true
+                    if(pattern_result==null){
+                      return true;
+                    }//end if for domain part after .
+                    //else we inform user that other than letters, things were entered
+                    else
+                    {
+                      alert("Adding " + pattern_result + " is not valid.");
+                      return false;
+                    }
+                  }//end if for domain part before .
+                  //else inform that domain part before . has issues
+                  else{
+                    alert("Adding " + pattern_result + " is not valid.");
+                    return false;
+                  }
+                }//end if for . present and is at correct place 
+                //else inform user for absence or wrong place for .
+                else{
+                  alert("Either the '.' is not present or is not at valid place.");
+                  return false;
+                }
+              }// end if for checking domain part present in email id
+              //else inform user for domain part not entered.
+              else{
+                alert("Domain part of email address is not present.");
+                return false;
+              }
+            }// end if for checking valid user name
+            //else inform user that entered user name is incorrect
+            else{
+              alert(pattern_result + " present in user name which is not valid.");
+              return false;
+            }
+          }// end if for checking the presence of @ and at correct position
+          //else inform user for absence and incorrect position of @
+          else{
+            alert("Either the '@' is not present or is not at valid place.");
+            return false;
+          }
+        }// end if for no value entered in email address
+        else //inform user to enter email id if found blank or null
+        {
+          alert("Email id is required. Please enter it.");          
+          return false;
+        }      
+      }
+      
+      //We here check for Mobile number to be present and in correct format in the function
+      function checkMobileNumber()
+      {
+        //variable to get the value of mobile number entered by user
+        var get_number_value = document.getElementById("phone_number").value;
+        
+        //check if the user has entered the mobile number or not
+        if((get_number_value != "") && (get_number_value != null))
+        {
+          //below is the expression to check (204) 555-1212 or 204.444.2323 or 204-555-3434 formats
+          check_pattern = /^\(?\d{3}\)?(\s|\-|\.)\s?\d{3}(\-|\.|\s)\d{4}$/;
+          //check if the entered value is any match with above expression
+          pattern_result = get_number_value.match(check_pattern);
+          //if no match found, inform user
+          if(pattern_result==null){
+            alert("Entered mobile number is not in a valid format.");
+            return false;
+          }
+          return true;
+        }
+        //say to user that mobile number not entered and all is empty.
+        else
+        {          
+          alert("Mobile Number is required. Please enter it.");          
+          return false;
+        }        
+        //all ok then come here and return true
+        return true;
+      }      
+      /*==========================End of Local Storage functions============================*/
+      
+      /*======================Code for Drag and Drop functionality to work==================*/
+      //Global variables to help the drag and drop functions
+      var moving_box;
+      var touching_box;
+      var all_correct = new Audio('sounds/clap.mp3'); //Sound from Zapsplat.com
+      var correct_sound = new Audio('sounds/correct_tone.mp3'); //Sound from Zapsplat.com
+      var wrong_sound = new Audio('sounds/Tryagain.mp3'); //Sound from Zapsplat.com
+      var correct_counter=0;
+      
+      //function when the draggable green divs are moved
+      function startMoving(start_event){
+        //we set the id
+        start_event.dataTransfer.setData("text",start_event.target.id);
+        //we try to get the number of the div out of its id
+        moving_box = start_event.target.id;        
+        //split the div id and get the number and parse it into Int as well
+        moving_box = parseInt(moving_box.split("_")[1]);       
+      }
+      
+      //function when a div is dragged over answer divs
+      function showChange(touch_event){
+        //first we clear all its functionality
+        touch_event.preventDefault();
+        //then we show change in its background color to help user see it is dragged over which div
+        touch_event.target.style.backgroundColor = "#dda";
+        //we here try to get teh number of the div out of its id
+        touching_box = touch_event.target.id;
+        //split the div id of answer div and get the number and parst it into Int as well
+        touching_box = parseInt(touching_box.split("_")[1]);        
+      }
+      
+      //function to change the background color of the div back to its original color
+      //this is done when the dragging of the draggable div leaves particular div
+      function changeBack(leave_event){
+        //we get the id of the div where it was dragged over
+        var get_div_id = leave_event.target.id;
+        //we check in below if conditions, if it matches which div id.
+        //if it matches we change the background color to its original one.
+        //below if conditions check for all number divs and item divs
+        if(get_div_id == "item_1"){
+          leave_event.target.style.backgroundColor = "#daa";
+        }
+        else if(get_div_id == "item_2"){
+          leave_event.target.style.backgroundColor = "#daa";
+        }
+        else if(get_div_id == "item_3"){
+           leave_event.target.style.backgroundColor = "#daa";
+        }
+        else if(get_div_id == "item_4"){
+           leave_event.target.style.backgroundColor = "#daa";
+        }
+        else if(get_div_id == "item_5"){
+           leave_event.target.style.backgroundColor = "#daa";
+        }        
+        else if(get_div_id == "number_1"){
+          leave_event.target.style.backgroundColor = "#4a4";
+        }
+        else if(get_div_id == "number_2"){
+          leave_event.target.style.backgroundColor = "#4a4";
+        }
+        else if(get_div_id == "number_3"){
+           leave_event.target.style.backgroundColor = "#4a4";
+        }
+        else if(get_div_id == "number_4"){
+           leave_event.target.style.backgroundColor = "#4a4";
+        }
+        else if(get_div_id == "number_5"){
+           leave_event.target.style.backgroundColor = "#4a4";
+        }
+      }
+      
+      //function to check if the div is correct to drop the number div into the item div
+      function acceptAnswer(answer_event){
+        //first we clear all functionality of the item div on which number div is dragged
+        answer_event.preventDefault();
+        //we create a variable to get the id of the number div
+        var get_answer;
+        
+        //if the id of number div matches to id of item div, we append the number div to item div
+        if(moving_box == touching_box){
+          //we get the id of the number div
+          get_answer = answer_event.dataTransfer.getData("text");
+          //we append the number div to item div
+          answer_event.target.appendChild(document.getElementById(get_answer));
+          //we now position the number div in the item div where it was appended.
+          var correct_answer = "number_" + moving_box;
+          //below is all styling CSS for positioning number div nicely into item div
+          document.getElementById(correct_answer).style.top = "36%";
+          document.getElementById(correct_answer).style.width = "50%";
+          document.getElementById(correct_answer).style.height = "50%";
+          document.getElementById(correct_answer).style.marginLeft = "22%";
+          document.getElementById(correct_answer).style.fontSize = "0.9em";
+          document.getElementById(correct_answer).style.paddingTop = "2px";
+          document.getElementById(correct_answer).style.backgroundColor = "#4a4";
+          //making sure the background color of item div remains of its original color
+          answer_event.target.style.backgroundColor = "#daa";
+          //Boost the user with a positive tune when it is corrrect
+          correct_sound.play(); // Sound from Zapsplat.com
+          //our counter to check if all is done at the end
+          correct_counter+=1;          
+        }
+        //else we are going to do nothing but bringing back the background color of item div
+        //to its original one and inform user with a sound to try again.
+        else{
+          answer_event.target.style.backgroundColor = "#daa";          
+          wrong_sound.play(); // Sound from Zapsplat.com
+        }
+        
+        //if all the number divs have reached to their correct place, applaud for user with claps
+        if(correct_counter==5){
+          var complete_sound = setTimeout("all_correct.play()",1000); // Sound from Zapsplat.com
+        }
+      }
+      //=============================End of Drag and Drop functions ============================
+      
+      
+      /*============================Code for Canvas Animation to show working.==================*/
+      //Global variables for functions to use them doing all the animation and other functionalities.
+      var canvas_background;
+      var canvas_resume = new Image();
+      canvas_resume.src = "images/resume.png";
+      var canvas_pause = new Image();
+      canvas_pause.src = "images/pause.png";
+      var bubble_color;
+      var show_all_bubbles;
+      var bubble_pressed;
+      var bubble_canvas;
+      
+      //Below are our bubbles which we want to animate in the canvas
+      var bubble1;      
+      var bubble2;      
+      var bubble3;      
+      var bubble4;      
+      var bubble5;      
+      var bubble6;      
+      var bubble7;      
+      var bubble8;      
+      var bubble9;      
+      var bubble10;      
+      var bubble11;      
+      var bubble12;      
+      var bubble13;      
+      var bubble14;      
+      var bubble15;      
+      var bubble16;      
+      var bubble17;      
+      var bubble18;      
+      var bubble19;      
+      var bubble20;      
+        
+      //below are the positions for each bubble and its speed to be by changing its position
+      var position_x = 80;
+      var position_y = 70;
+      
+      var speed_vertical_x = 1;
+      var speed_horizontal_y = 1;    
+      
+      var position_x1 = 150;
+      var position_y1 = 90;
+      
+      var speed_vertical_x1 = 1.5;
+      var speed_horizontal_y1 = 1.5;
+      
+      var position_x2 = 250;
+      var position_y2 = 110;
+      
+      var speed_vertical_x2 = 2;
+      var speed_horizontal_y2 = 2;
+      
+      var position_x3 = 350;
+      var position_y3 = 130;
+      
+      var speed_vertical_x3 = 2.5;
+      var speed_horizontal_y3 = 2.5;
+      
+      var position_x4 = 450;
+      var position_y4 = 150;
+      
+      var speed_vertical_x4 = 3;
+      var speed_horizontal_y4 = 3;
+      
+      var position_x5 = 550;
+      var position_y5 = 170;
+      
+      var speed_vertical_x5 = 3.4;
+      var speed_horizontal_y5 = 3.4;
+      
+      var position_x6 = 650;
+      var position_y6 = 190;
+      
+      var speed_vertical_x6 = 4;
+      var speed_horizontal_y6 = 4;
+      
+      var position_x7 = 750;
+      var position_y7 = 210;
+      
+      var speed_vertical_x7 = 4.5;
+      var speed_horizontal_y7 = 4.5;
+      
+      var position_x8 = 850;
+      var position_y8 = 230;
+      
+      var speed_vertical_x8 = 5;
+      var speed_horizontal_y8 = 5;
+      
+      var position_x9 = 950;
+      var position_y9 = 250;
+      
+      var speed_vertical_x9 = 5.5;
+      var speed_horizontal_y9 = 5.5;
+      
+      var position_x10 = 100;
+      var position_y10 = 270;
+      
+      var speed_vertical_x10 = 6;
+      var speed_horizontal_y10 = 6;
+      
+      var position_x11 = 170;
+      var position_y11 = 240;
+      
+      var speed_vertical_x11 = 5.5;
+      var speed_horizontal_y11 = 5.5;
+      
+      var position_x12 = 270;
+      var position_y12 = 220;
+      
+      var speed_vertical_x12 = 5;
+      var speed_horizontal_y12 = 5;
+      
+      var position_x13 = 370;
+      var position_y13 = 200;
+      
+      var speed_vertical_x13 = 4.5;
+      var speed_horizontal_y13 = 4.5;
+      
+      var position_x14 = 470;
+      var position_y14 = 180;
+      
+      var speed_vertical_x14 = 4;
+      var speed_horizontal_y14 = 4;
+      
+      var position_x15 = 570;
+      var position_y15 = 160;
+      
+      var speed_vertical_x15 = 6.6;
+      var speed_horizontal_y15 = 6.6;
+      
+      var position_x16 = 670;
+      var position_y16 = 140;
+      
+      var speed_vertical_x16 = 3;
+      var speed_horizontal_y16 = 3;
+      
+      var position_x17 = 770;
+      var position_y17 = 120;
+      
+      var speed_vertical_x17 = 2.5;
+      var speed_horizontal_y17 = 2.5;
+      
+      var position_x18 = 830;
+      var position_y18 = 100;
+      
+      var speed_vertical_x18 = 1.5;
+      var speed_horizontal_y18 = 1.5;
+      
+      var position_x19 = 900;
+      var position_y19 = 80;
+      
+      var speed_vertical_x19 = 1;
+      var speed_horizontal_y19 = 1;       
+      
+      //function to call the bubbles to animate.
+      function animateBubblesToy(){       
+        
+        show_all_bubbles = setInterval('animateBubbles()',30);      
+        
+      }
+      
+      //function to create bubbles at their position and show them moving by changing their position
+      function animateBubbles(){
+        //clear position for 20 bubbles;
+        bubble1.clearRect(0,0,1000,500);
+        bubble2.clearRect(0,0,1000,500);
+        bubble3.clearRect(0,0,1000,500);
+        bubble4.clearRect(0,0,1000,500);
+        bubble5.clearRect(0,0,1000,500);
+        bubble6.clearRect(0,0,1000,500);
+        bubble7.clearRect(0,0,1000,500);
+        bubble8.clearRect(0,0,1000,500);
+        bubble9.clearRect(0,0,1000,500);
+        bubble10.clearRect(0,0,1000,500);
+        bubble11.clearRect(0,0,1000,500);
+        bubble12.clearRect(0,0,1000,500);
+        bubble13.clearRect(0,0,1000,500);
+        bubble14.clearRect(0,0,1000,500);
+        bubble15.clearRect(0,0,1000,500);
+        bubble16.clearRect(0,0,1000,500);
+        bubble17.clearRect(0,0,1000,500);
+        bubble18.clearRect(0,0,1000,500);
+        bubble19.clearRect(0,0,1000,500);
+        bubble20.clearRect(0,0,1000,500);
+        
+        //show an image to canvas background for user to click to pause the animation.
+        canvas_background.drawImage(canvas_pause,200,50);
+        
+        //get the color of input type color for filling into 20 bubbles
+        bubble_color = document.getElementById("favcolor").value;
+        
+        //style for bubble 1      
+        bubble1.beginPath();                 
+        bubble1.arc(position_x,position_y,50,0,Math.PI*2);
+        bubble1.closePath();
+    
+        bubble1.fillStyle = bubble_color;
+        bubble1.fill();
+        bubble1.strokeStyle = "#000";
+        bubble1.lineWidth = 1;
+        bubble1.stroke();
+        
+        // -----------move the bubble 1 in canvas-----------
+        if(position_x > (1000-50) || position_x < (0+50)){
+          speed_vertical_x = -speed_vertical_x;
+        }
+
+        if(position_y > (500-50) || position_y < (0+50)){
+          speed_horizontal_y = -speed_horizontal_y;
+        }
+
+        position_x += speed_vertical_x;
+        position_y += speed_horizontal_y;     
+        
+        //********************style for bubble 2********************
+        bubble2.beginPath();                 
+        bubble2.arc(position_x1,position_y1,50,0,Math.PI*2);
+        bubble2.closePath();
+
+        bubble2.fillStyle = bubble_color;
+        bubble2.fill();
+        bubble2.strokeStyle = "#000";
+        bubble2.lineWidth = 1;
+        bubble2.stroke();
+        
+        // -----------move the bubble 2 in canvas-----------
+        if(position_x1 > (1000-50) || position_x1 < (0+50)){
+          speed_vertical_x1 = -speed_vertical_x1;
+        }
+
+        if(position_y1 > (500-50) || position_y1 < (0+50)){
+          speed_horizontal_y1 = -speed_horizontal_y1;
+        }
+
+        position_x1 += speed_vertical_x1;
+        position_y1 += speed_horizontal_y1;      
+        
+        //********************style for bubble 3********************
+        bubble3.beginPath();                 
+        bubble3.arc(position_x2,position_y2,50,0,Math.PI*2);
+        bubble3.closePath();
+
+        bubble3.fillStyle = bubble_color;
+        bubble3.fill();
+        bubble3.strokeStyle = "#000";
+        bubble3.lineWidth = 1;
+        bubble3.stroke();
+        
+        // -----------move the bubble 3 in canvas-----------
+        if(position_x2 > (1000-50) || position_x2 < (0+50)){
+          speed_vertical_x2 = -speed_vertical_x2;
+        }
+
+        if(position_y2 > (500-50) || position_y2 < (0+50)){
+          speed_horizontal_y2 = -speed_horizontal_y2;
+        }
+
+        position_x2 += speed_vertical_x2;
+        position_y2 += speed_horizontal_y2; 
+        
+        //********************style for bubble 4********************
+        bubble4.beginPath();                 
+        bubble4.arc(position_x3,position_y3,50,0,Math.PI*2);
+        bubble4.closePath();
+
+        bubble4.fillStyle = bubble_color;
+        bubble4.fill();
+        bubble4.strokeStyle = "#000";
+        bubble4.lineWidth = 1;
+        bubble4.stroke();
+        
+        // -----------move the bubble 4 in canvas-----------
+        if(position_x3 > (1000-50) || position_x3 < (0+50)){
+          speed_vertical_x3 = -speed_vertical_x3;
+        }
+
+        if(position_y3 > (500-50) || position_y3 < (0+50)){
+          speed_horizontal_y3 = -speed_horizontal_y3;
+        }
+
+        position_x3 += speed_vertical_x3;
+        position_y3 += speed_horizontal_y3; 
+        
+        //********************style for bubble 5********************        
+        bubble5.beginPath();                 
+        bubble5.arc(position_x4,position_y4,50,0,Math.PI*2);
+        bubble5.closePath();
+
+        bubble5.fillStyle = bubble_color;
+        bubble5.fill();
+        bubble5.strokeStyle = "#000";
+        bubble5.lineWidth = 1;
+        bubble5.stroke();
+        
+        // -----------move the bubble 5 in canvas-----------
+        if(position_x4 > (1000-50) || position_x4 < (0+50)){
+          speed_vertical_x4 = -speed_vertical_x4;
+        }
+
+        if(position_y4 > (500-50) || position_y4 < (0+50)){
+          speed_horizontal_y4 = -speed_horizontal_y4;
+        }
+
+        position_x4 += speed_vertical_x4;
+        position_y4 += speed_horizontal_y4; 
+        
+        //********************style for bubble 6********************
+        bubble6.beginPath();                 
+        bubble6.arc(position_x5,position_y5,50,0,Math.PI*2);
+        bubble6.closePath();
+
+        bubble6.fillStyle = bubble_color;
+        bubble6.fill();
+        bubble6.strokeStyle = "#000";
+        bubble6.lineWidth = 1;
+        bubble6.stroke();
+        
+        // -----------move the bubble 6in canvas-----------
+        if(position_x5 > (1000-50) || position_x5 < (0+50)){
+          speed_vertical_x5 = -speed_vertical_x5;
+        }
+
+        if(position_y5 > (500-50) || position_y5 < (0+50)){
+          speed_horizontal_y5 = -speed_horizontal_y5;
+        }
+
+        position_x5 += speed_vertical_x5;
+        position_y5 += speed_horizontal_y5; 
+        
+        //********************style for bubble 7********************        
+        bubble7.beginPath();                 
+        bubble7.arc(position_x6,position_y6,50,0,Math.PI*2);
+        bubble7.closePath();
+
+        bubble7.fillStyle = bubble_color;
+        bubble7.fill();
+        bubble7.strokeStyle = "#000";
+        bubble7.lineWidth = 1;
+        bubble7.stroke();
+        
+        // -----------move the bubble 7 in canvas-----------
+        if(position_x6 > (1000-50) || position_x6 < (0+50)){
+          speed_vertical_x6 = -speed_vertical_x6;
+        }
+
+        if(position_y6 > (500-50) || position_y6 < (0+50)){
+          speed_horizontal_y6 = -speed_horizontal_y6;
+        }
+
+        position_x6 += speed_vertical_x6;
+        position_y6 += speed_horizontal_y6; 
+        
+        //********************style for bubble 8********************
+        bubble8.beginPath();                 
+        bubble8.arc(position_x7,position_y7,50,0,Math.PI*2);
+        bubble8.closePath();
+
+        bubble8.fillStyle = bubble_color;
+        bubble8.fill();
+        bubble8.strokeStyle = "#000";
+        bubble8.lineWidth = 1;
+        bubble8.stroke();
+        
+        // -----------move the bubble 8 in canvas-----------
+        if(position_x7 > (1000-50) || position_x7 < (0+50)){
+          speed_vertical_x7 = -speed_vertical_x7;
+        }
+
+        if(position_y7 > (500-50) || position_y7 < (0+50)){
+          speed_horizontal_y7 = -speed_horizontal_y7;
+        }
+
+        position_x7 += speed_vertical_x7;
+        position_y7 += speed_horizontal_y7; 
+        
+        //********************style for bubble 9********************        
+        bubble9.beginPath();                 
+        bubble9.arc(position_x8,position_y8,50,0,Math.PI*2);
+        bubble9.closePath();
+
+        bubble9.fillStyle = bubble_color;
+        bubble9.fill();
+        bubble9.strokeStyle = "#000";
+        bubble9.lineWidth = 1;
+        bubble9.stroke();
+        
+        // -----------move the bubble 9 in canvas-----------
+        if(position_x8 > (1000-50) || position_x8 < (0+50)){
+          speed_vertical_x8 = -speed_vertical_x8;
+        }
+
+        if(position_y8 > (500-50) || position_y8 < (0+50)){
+          speed_horizontal_y8 = -speed_horizontal_y8;
+        }
+
+        position_x8 += speed_vertical_x8;
+        position_y8 += speed_horizontal_y8; 
+          
+        //********************style for bubble 10********************
+        bubble10.beginPath();                 
+        bubble10.arc(position_x9,position_y9,50,0,Math.PI*2);
+        bubble10.closePath();
+
+        bubble10.fillStyle = bubble_color;
+        bubble10.fill();
+        bubble10.strokeStyle = "#000";
+        bubble10.lineWidth = 1;
+        bubble10.stroke();
+        
+        // -----------move the bubble 10 in canvas-----------
+        if(position_x9 > (1000-50) || position_x9 < (0+50)){
+          speed_vertical_x9 = -speed_vertical_x9;
+        }
+
+        if(position_y9 > (500-50) || position_y9 < (0+50)){
+          speed_horizontal_y9 = -speed_horizontal_y9;
+        }
+
+        position_x9 += speed_vertical_x9;
+        position_y9 += speed_horizontal_y9; 
+        
+        //********************style for bubble 11********************
+        bubble11.beginPath();                 
+        bubble11.arc(position_x10,position_y10,50,0,Math.PI*2);
+        bubble11.closePath();
+
+        bubble11.fillStyle = bubble_color;
+        bubble11.fill();
+        bubble11.strokeStyle = "#000";
+        bubble11.lineWidth = 1;
+        bubble11.stroke();
+        
+        // -----------move the bubble 11 in canvas-----------
+        if(position_x10 > (1000-50) || position_x10 < (0+50)){
+          speed_vertical_x10 = -speed_vertical_x10;
+        }
+
+        if(position_y10 > (500-50) || position_y10 < (0+50)){
+          speed_horizontal_y10 = -speed_horizontal_y10;
+        }
+
+        position_x10 += speed_vertical_x10;
+        position_y10 += speed_horizontal_y10;
+        
+        //********************style for bubble 12********************
+        bubble12.beginPath();                 
+        bubble12.arc(position_x11,position_y11,50,0,Math.PI*2);
+        bubble12.closePath();
+
+        bubble12.fillStyle = bubble_color;
+        bubble12.fill();
+        bubble12.strokeStyle = "#000";
+        bubble12.lineWidth = 1;
+        bubble12.stroke();
+        
+        // -----------move the bubble 12 in canvas-----------
+        if(position_x11 > (1000-50) || position_x11 < (0+50)){
+          speed_vertical_x11 = -speed_vertical_x11;
+        }
+
+        if(position_y11 > (500-50) || position_y11 < (0+50)){
+          speed_horizontal_y11 = -speed_horizontal_y11;
+        }
+
+        position_x11 += speed_vertical_x11;
+        position_y11 += speed_horizontal_y11;
+        
+        //********************style for bubble 13********************
+        bubble13.beginPath();                 
+        bubble13.arc(position_x12,position_y12,50,0,Math.PI*2);
+        bubble13.closePath();
+
+        bubble13.fillStyle = bubble_color;
+        bubble13.fill();
+        bubble13.strokeStyle = "#000";
+        bubble13.lineWidth = 1;
+        bubble13.stroke();
+        
+        // -----------move the bubble 13 in canvas-----------
+        if(position_x12 > (1000-50) || position_x12 < (0+50)){
+          speed_vertical_x12 = -speed_vertical_x12;
+        }
+
+        if(position_y12 > (500-50) || position_y12 < (0+50)){
+          speed_horizontal_y12 = -speed_horizontal_y12;
+        }
+
+        position_x12 += speed_vertical_x12;
+        position_y12 += speed_horizontal_y12;
+        
+        //********************style for bubble 14********************
+        bubble14.beginPath();                 
+        bubble14.arc(position_x13,position_y13,50,0,Math.PI*2);
+        bubble14.closePath();
+
+        bubble14.fillStyle = bubble_color;
+        bubble14.fill();
+        bubble14.strokeStyle = "#000";
+        bubble14.lineWidth = 1;
+        bubble14.stroke();
+        
+        // -----------move the bubble 14 in canvas-----------
+        if(position_x13 > (1000-50) || position_x13 < (0+50)){
+          speed_vertical_x13 = -speed_vertical_x13;
+        }
+
+        if(position_y13 > (500-50) || position_y13 < (0+50)){
+          speed_horizontal_y13 = -speed_horizontal_y13;
+        }
+
+        position_x13 += speed_vertical_x13;
+        position_y13 += speed_horizontal_y13;
+        
+        //********************style for bubble 15********************        
+        bubble15.beginPath();                 
+        bubble15.arc(position_x14,position_y14,50,0,Math.PI*2);
+        bubble15.closePath();
+
+        bubble15.fillStyle = bubble_color;
+        bubble15.fill();
+        bubble15.strokeStyle = "#000";
+        bubble15.lineWidth = 1;
+        bubble15.stroke();
+        
+        // -----------move the bubble 15 in canvas-----------
+        if(position_x14 > (1000-50) || position_x14 < (0+50)){
+          speed_vertical_x14 = -speed_vertical_x14;
+        }
+
+        if(position_y14 > (500-50) || position_y14 < (0+50)){
+          speed_horizontal_y14 = -speed_horizontal_y14;
+        }
+
+        position_x14 += speed_vertical_x14;
+        position_y14 += speed_horizontal_y14;
+        
+        //********************style for bubble 16********************
+        bubble16.beginPath();                 
+        bubble16.arc(position_x15,position_y15,50,0,Math.PI*2);
+        bubble16.closePath();
+
+        bubble16.fillStyle = bubble_color;
+        bubble16.fill();
+        bubble16.strokeStyle = "#000";
+        bubble16.lineWidth = 1;
+        bubble16.stroke();
+        
+        // -----------move the bubble 16 in canvas-----------
+        if(position_x15 > (1000-50) || position_x15 < (0+50)){
+          speed_vertical_x15 = -speed_vertical_x15;
+        }
+
+        if(position_y15 > (500-50) || position_y15 < (0+50)){
+          speed_horizontal_y15 = -speed_horizontal_y15;
+        }
+
+        position_x15 += speed_vertical_x15;
+        position_y15 += speed_horizontal_y15;
+        
+        //********************style for bubble 17********************
+        bubble17.beginPath();                 
+        bubble17.arc(position_x16,position_y16,50,0,Math.PI*2);
+        bubble17.closePath();
+
+        bubble17.fillStyle = bubble_color;
+        bubble17.fill();
+        bubble17.strokeStyle = "#000";
+        bubble17.lineWidth = 1;
+        bubble17.stroke();
+        
+        // -----------move the bubble 17 in canvas-----------
+        if(position_x16 > (1000-50) || position_x16 < (0+50)){
+          speed_vertical_x16 = -speed_vertical_x16;
+        }
+
+        if(position_y16 > (500-50) || position_y16 < (0+50)){
+          speed_horizontal_y16 = -speed_horizontal_y16;
+        }
+
+        position_x16 += speed_vertical_x16;
+        position_y16 += speed_horizontal_y16;
+        
+        
+        //********************style for bubble 18********************
+        bubble18.beginPath();                 
+        bubble18.arc(position_x17,position_y17,50,0,Math.PI*2);
+        bubble18.closePath();
+
+        bubble18.fillStyle = bubble_color;
+        bubble18.fill();
+        bubble18.strokeStyle = "#000";
+        bubble18.lineWidth = 1;
+        bubble18.stroke();
+        
+        // -----------move the bubble 18 in canvas-----------
+        if(position_x17 > (1000-50) || position_x17 < (0+50)){
+          speed_vertical_x17 = -speed_vertical_x17;
+        }
+
+        if(position_y17 > (500-50) || position_y17 < (0+50)){
+          speed_horizontal_y17 = -speed_horizontal_y17;
+        }
+
+        position_x17 += speed_vertical_x17;
+        position_y17 += speed_horizontal_y17;
+        
+        //********************style for bubble 19********************
+        bubble19.beginPath();                 
+        bubble19.arc(position_x18,position_y18,50,0,Math.PI*2);
+        bubble19.closePath();
+
+        bubble19.fillStyle = bubble_color;
+        bubble19.fill();
+        bubble19.strokeStyle = "#000";
+        bubble19.lineWidth = 1;
+        bubble19.stroke();
+        
+        // -----------move the bubble 19 in canvas-----------
+        if(position_x18 > (1000-50) || position_x18 < (0+50)){
+          speed_vertical_x18 = -speed_vertical_x18;
+        }
+
+        if(position_y18 > (500-50) || position_y18 < (0+50)){
+          speed_horizontal_y18 = -speed_horizontal_y18;
+        }
+
+        position_x18 += speed_vertical_x18;
+        position_y18 += speed_horizontal_y18;
+        
+        //********************style for bubble 20********************        
+        bubble20.beginPath();                 
+        bubble20.arc(position_x19,position_y19,50,0,Math.PI*2);
+        bubble20.closePath();
+
+        bubble20.fillStyle = bubble_color;
+        bubble20.fill();
+        bubble20.strokeStyle = "#000";
+        bubble20.lineWidth = 1;
+        bubble20.stroke();
+        
+        // -----------move the bubble 20 in canvas-----------
+        if(position_x19 > (1000-50) || position_x19 < (0+50)){
+          speed_vertical_x19 = -speed_vertical_x19;
+        }
+
+        if(position_y19 > (500-50) || position_y19 < (0+50)){
+          speed_horizontal_y19 = -speed_horizontal_y19;
+        }
+
+        position_x19 += speed_vertical_x19;
+        position_y19 += speed_horizontal_y19;
+      }
+      //End of animating bubbles function
+      
+      
+      //load the jQuery after the page is loaded
+      $(document).ready(function(){         
+        
+        //let the desired ul tag element to work in tabs to show navigation menu
+        $("#navigation_menu").tabs({
+          active: 0
+        });
+        
+        //==========================Canvas Animation Code===========================
+        //initialize the canvas into a variable
+        bubble_canvas = document.getElementById("bubble_show");
+        //giving width and height to canvas
+        bubble_canvas.width = 1250;
+        bubble_canvas.height = 1000;
+        //hack to improve zoom in
+        bubble_canvas.style.width = "625px";
+        bubble_canvas.style.height = "500px";
+        
+        //get context of canvas into 20 bubbles.
+        //idea is to burst every bubble, if time permits
+        bubble1 = bubble_canvas.getContext('2d');
+        bubble2 = bubble_canvas.getContext('2d');
+        bubble3 = bubble_canvas.getContext('2d');
+        bubble4 = bubble_canvas.getContext('2d');
+        bubble5 = bubble_canvas.getContext('2d');
+        bubble6 = bubble_canvas.getContext('2d');
+        bubble7 = bubble_canvas.getContext('2d');
+        bubble8 = bubble_canvas.getContext('2d');
+        bubble9 = bubble_canvas.getContext('2d');
+        bubble10 = bubble_canvas.getContext('2d');
+        bubble11 = bubble_canvas.getContext('2d');
+        bubble12 = bubble_canvas.getContext('2d');
+        bubble13 = bubble_canvas.getContext('2d');
+        bubble14 = bubble_canvas.getContext('2d');
+        bubble15 = bubble_canvas.getContext('2d');
+        bubble16 = bubble_canvas.getContext('2d');
+        bubble17 = bubble_canvas.getContext('2d');
+        bubble18 = bubble_canvas.getContext('2d');
+        bubble19 = bubble_canvas.getContext('2d');
+        bubble20 = bubble_canvas.getContext('2d');
+        
+        //this is our variable for putting image
+        canvas_background = bubble_canvas.getContext('2d');
+        
+        //get the bubble into ellipse shape. doing to one will give effect to all bubbles
+        bubble1.scale(1.25,2);
+        
+        // For position of mouse.
+        var rect = bubble_canvas.getBoundingClientRect();       
+        
+        //initialize the variable for button tag to show bubbles in canvas
+        bubble_pressed = document.getElementById("bubble_press");
+        
+        //show bubbles when show bubbles button is clicked.
+        bubble_pressed.addEventListener('click',function(){
+          if(bubble_pressed.innerHTML=="Continue"){
+            bubble_pressed.innerHTML = "Show Bubbles";            
+          }
+          
+          //clear all previous bubbles; we do this to let the bubbles not speed up
+          clearInterval(show_all_bubbles);
+          
+          //call function to go to a function to show bubbles
+          var show_toy = setTimeout('animateBubblesToy()',30);
+          
+        });    
+        
+        // event listener for click event into the canvas
+        bubble_canvas.addEventListener('click', function(event) {
+          
+          //we clear image that was before. Unfortunately bubbles also clear up
+          canvas_background.clearRect(0,0,1000,500);
+          
+          //we stop animation for bubbles
+          clearInterval(show_all_bubbles);   
+          
+          //we change the show bubbles to continue for user to understand 
+          //where to click to see the bubbles again
+          bubble_pressed.innerHTML = "Continue";      
+          
+          //change the background of the canvas to show user that he can click "continue"
+          //to start the animation of bubbles again
+          canvas_background.drawImage(canvas_resume,200,50);
+        });
+        // ====================End of Canvas Animation ===========================
+        
+        // ====================Local Storage Presentation=========================         
+        
+        //if the local storage got the details saved, we welcome user.
+        if(localStorage.getItem("first_name")!=null){
+          //below is the code to append p tag to show welcome user with its name and count of visit
+          document.getElementById("welcome_user").innerHTML = "Hello <strong>" + localStorage.getItem("first_name") + "</strong>";
+          document.getElementById("welcome_user").innerHTML += ".<br/> This is your visit number: <em>" + localStorage.getItem("num_of_visits") + "</em>";
+          //loop to run through local storage keys and get teh values of it to show to user
+          for(i=0;i<localStorage.length;i++){
+            //we get the key and value from local storage
+            get_the_key_name = localStorage.key(i);
+            get_the_key_value = localStorage.getItem(get_the_key_name);
+            //check if the key is not number of visits and not the child's name 
+            if(get_the_key_name!="num_of_visits" && get_the_key_name!="first_name"){
+              //we show the phone number nicely
+              if(get_the_key_name=="phone_number"){
+                document.getElementById("welcome_user").innerHTML += "<br />Phone No." + ": " + get_the_key_value;             
+              }
+              //we show the email id nicely
+              else if(get_the_key_name=="email_address"){
+                document.getElementById("welcome_user").innerHTML += "<br />Email Id" + ": " + get_the_key_value; 
+              }
+              //we change the background color to the fav color of the child
+              else{
+                document.getElementById("main_page").style.backgroundColor = get_the_key_value; 
+              }
+            }
+          }
+          //We ask user if they want to delete their data from local storage
+          document.getElementById("welcome_user").innerHTML += "<br />Wish to Delete Your Data?";
+          //we show up the button that was previously not shown as opacity was 0
+          document.getElementById("clear_local_storage").style.opacity ="1";
+          
+          //we check if the count of visits exist in local storage
+          if(localStorage.getItem("num_of_visits")){
+            //we get that count
+            form_visited = localStorage.getItem("num_of_visits");
+            //we add one to it
+            form_visited++;
+          }
+          //else we set the count of visit to 1 as it is the first time of local storage to get any data
+          else{
+            form_visited = 1;
+          }
+
+          //whatever the count is that we got from form_visited counter, 
+          //we set it to the key of "num_of_visits"
+          localStorage.setItem("num_of_visits",form_visited); 
+        }//end of the condition to check if data exists in local storage
+        //else we show to user that he is not registered with the website yet into the local storage
+        else{
+          document.getElementById("welcome_user").style.top = "25%";
+          document.getElementById("welcome_user").innerHTML = "You are not registered with us.";
+          document.getElementById("welcome_user").innerHTML += "<br /> Register with us clicking ";
+          document.getElementById("welcome_user").innerHTML += "<br />'Join Us' below."
+        }
+        //We go and delete the local storage for user if he clicks delete user data
+        document.getElementById("clear_local_storage").addEventListener('click',function(){
+          //loop to run for getting data from local storage and remove one by one
+          for(i=localStorage.length-1;i>=0;i--){            
+            localStorage.removeItem(localStorage.key(i));
+          }
+          //as we are done we go back to reload the page to show nothing exists in local storage 
+          //or say user is not registered with us yet.
+          window.history.go(0);
+        });
+        
+      });    
+      //===========================End of onload function=================================
+    </script>
+  </body>
+</html>
